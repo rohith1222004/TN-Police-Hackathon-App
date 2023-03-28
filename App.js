@@ -1,11 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View,Image, Dimensions} from 'react-native';
+import React,{useState} from 'react';
+import MapView ,{Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import NavBar from './components/NavBar';
+import VehicleCard from './components/VehicleCard';
 
 export default function App() {
+  const [originMarker,setOriginMarker] = useState({
+    latitude:10.939,
+    longitude: 76.955
+  })
+  const [mapRegion, setmapRegion] = useState({
+    latitude:originMarker.latitude,
+    longitude:originMarker.longitude,
+    latitudeDelta: 0,
+    longitudeDelta: 0.002,
+  });
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <View style={{backgroundColor:'#30364A',height:Dimensions.get('window').height-370}}>
+        <NavBar/>
+        <VehicleCard/>
+      </View>
+      <MapView style={styles.map} provider={PROVIDER_GOOGLE} region={mapRegion}> 
+          <Marker coordinate={originMarker} pinColor = 'red'/>
+          
+      </MapView>
+      
+      <View>
+
+      </View>
+
     </View>
   );
 }
@@ -13,8 +37,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
+  map: {
+    width: '100%',
+    height: '100%',
+    zIndex:-1
+  },
+
 });
