@@ -5,7 +5,7 @@ export default function VehicleCard() {
   return (
     <View style={{alignSelf:'center'}}>
     <View style={styles.container}>
-      <View style={{height:Dimensions.get('window').height - 510,flexDirection:'row',alignItems:'center',justifyContent:'flex-start'}}>
+      <View style={{height:100,flexDirection:'row',alignItems:'center',justifyContent:'flex-start'}}>
           <View style={{margin:25}}>
            <Image style={{width:50,height:50}} source={require('../assets/car.png')}/>
           </View>
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     // backgroundColor: '#30364A',
     backgroundColor:'white',
     // marginTop:20,
-    height:Dimensions.get('window').height - 510,
+    height:100,
     width:Dimensions.get('window').width - 40,
     borderRadius:10
   },

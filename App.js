@@ -1,35 +1,23 @@
-import { StyleSheet, Text, View,Image, Dimensions} from 'react-native';
+import { Dimensions, StyleSheet, Text, View,Image } from 'react-native';
 import React,{useState} from 'react';
-import MapView ,{Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import NavBar from './components/NavBar';
 import VehicleCard from './components/VehicleCard';
+import EmergencyCard from './components/EmergencyCard';
+
 
 export default function App() {
-  const [originMarker,setOriginMarker] = useState({
-    latitude:10.939,
-    longitude: 76.955
-  })
-  const [mapRegion, setmapRegion] = useState({
-    latitude:originMarker.latitude,
-    longitude:originMarker.longitude,
-    latitudeDelta: 0,
-    longitudeDelta: 0.002,
-  });
   return (
     <View style={styles.container}>
-      <View style={{backgroundColor:'#30364A',height:Dimensions.get('window').height-370}}>
-        <NavBar/>
-        <VehicleCard/>
-      </View>
-      <MapView style={styles.map} provider={PROVIDER_GOOGLE} region={mapRegion}> 
-          <Marker coordinate={originMarker} pinColor = 'red'/>
-          
-      </MapView>
-      
-      <View>
-
-      </View>
-
+     <NavBar/>
+     <VehicleCard />
+     <View style={{width:Dimensions.get('window').width-20,height:250,backgroundColor:'white',alignSelf:'center',borderRadius:15,marginTop:20}}>
+        <Image style={{width:350,height:230,alignSelf:'center',alignContent:'center',borderRadius:10,marginTop:10}} source={require('./assets/CarLiveTracking.png')} />
+     </View>
+     <View style={{width:Dimensions.get('window').width,height:250,backgroundColor:'white',marginTop:20}}>
+     </View>
+     <View style={{marginTop:20}}>
+     <EmergencyCard/>
+     </View>
     </View>
   );
 }
@@ -37,11 +25,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#30364A',
+    // backgroundColor:'red',
   },
-  map: {
-    width: '100%',
-    height: '100%',
-    zIndex:-1
-  },
-
 });

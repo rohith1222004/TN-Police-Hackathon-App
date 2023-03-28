@@ -5,7 +5,7 @@ export default function NavBar() {
   return (
     <View style={styles.container}>
    
-      <View  style={{ flexDirection:'row',justifyContent:'space-between',marginRight:15,marginLeft:15,alignItems:'center',height:Dimensions.get('window').height - 500}}>
+      <View  style={{ flexDirection:'row',justifyContent:'space-between',marginRight:15,marginLeft:15,alignItems:'center',height:100}}>
         <View>
           <Text style={{color:'white',fontWeight:'bold',fontSize:25}}>F3 POLICE STATION</Text>
           <Text style={{color:'white',fontSize:17}}>Valluvar Kottam, Chennai</Text>
@@ -24,6 +24,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#30364A',
     // backgroundColor:'red',
     marginTop:20,
-    height:Dimensions.get('window').height - 500
+    height:100
   },
 });
